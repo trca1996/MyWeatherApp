@@ -1,10 +1,13 @@
 import React from "react";
 import "./App.scss";
+import LeftSection from "./components/LeftSection";
+import RightSection from "./components/RightSection";
 
 function App() {
   return (
     <div className="app">
-      <h1>Weather App</h1>
+      <LeftSection />
+      <RightSection />
     </div>
   );
 }

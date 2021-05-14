@@ -1,0 +1,104 @@
+.leftSection {
+  background-color: var(--color-primary);
+  flex: 0.4;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .MuiButtonBase-root {
+      font-size: 1.6rem;
+      font-weight: 500;
+      text-transform: none !important;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+
+    img {
+      height: 23rem;
+      width: 20rem;
+      z-index: 999;
+    }
+
+    h4 {
+      z-index: 999;
+      font-weight: 100;
+      font-size: 4.8rem;
+      span {
+        font-size: 14rem;
+        font-weight: 500;
+      }
+    }
+
+    h5 {
+      font-size: 3.6rem;
+      font-weight: 600;
+      color: var(--color-text-dark);
+    }
+  }
+
+  &__date {
+    display: flex;
+    font-weight: 500;
+    color: var(--color-text-darker);
+    font-size: 1.8rem;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0 3.5px;
+    }
+  }
+
+  &__location {
+    color: var(--color-text-darker);
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+}
+
+.cloud {
+  position: absolute;
+
+  &--one {
+    height: 10rem;
+    width: 20rem;
+    top: 11rem;
+    right: -5rem;
+  }
+  &--two {
+    height: 15rem;
+    width: 20rem;
+    top: 9rem;
+    left: -9rem;
+  }
+  &--three {
+    height: 12rem;
+    width: 20rem;
+    top: 28rem;
+    left: -5rem;
+  }
+  &--four {
+    height: 15rem;
+    width: 20rem;
+    top: 30rem;
+    right: -5rem;
+  }
+}
