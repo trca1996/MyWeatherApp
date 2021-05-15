@@ -1,12 +1,18 @@
+@import "../design-tokens/scss-variables";
+
 .leftSection {
   background-color: var(--color-primary);
-  flex: 0.4;
+  flex: 0.28;
   position: relative;
   overflow: hidden;
   padding: 3rem;
   font-size: 2rem;
   display: flex;
   flex-direction: column;
+
+  @include respond(smallDesktop) {
+    height: 100vh;
+  }
 
   &__header {
     display: flex;
@@ -36,9 +42,9 @@
     h4 {
       z-index: 999;
       font-weight: 100;
-      font-size: 4.8rem;
+      font-size: 4rem;
       span {
-        font-size: 14rem;
+        font-size: 12rem;
         font-weight: 500;
       }
     }
@@ -70,7 +76,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 3.5rem;
   }
 }
 

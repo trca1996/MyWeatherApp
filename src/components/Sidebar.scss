@@ -1,3 +1,5 @@
+@import "../design-tokens/scss-variables";
+
 .sidebar {
   position: absolute;
   top: 0;
@@ -13,6 +15,19 @@
   transition: all 0.3s ease-in-out;
   transform: translateX(-100%);
 
+  @include respond(smallDesktop) {
+    height: 100vh;
+    width: 50%;
+  }
+
+  @include respond(tab-port) {
+    width: 70%;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
   &__open {
     transform: translateX(0);
   }
@@ -27,6 +42,15 @@
     display: flex;
     align-items: center;
     margin-top: 10vw;
+    justify-content: center;
+
+    @include respond(tab-port) {
+      margin-top: 20vw;
+    }
+
+    @include respond(smallPhone) {
+      margin-top: 25vw;
+    }
 
     button {
       padding: 1rem;
@@ -51,6 +75,10 @@
     align-items: center;
     border: 1px solid var(--color-text-darker);
     padding-left: 1rem;
+
+    @include respond(smallPhone) {
+      width: 65%;
+    }
 
     input {
       background-color: transparent;

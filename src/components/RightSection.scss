@@ -1,9 +1,15 @@
+@import "../design-tokens/scss-variables";
+
 .rightSection {
   background-color: var(--color-primary-dark);
-  flex: 1;
+  flex: 0.72;
   display: flex;
   flex-direction: column;
   padding: 3rem 5rem;
+
+  @include respond(smallPhone) {
+    padding: 1.5rem 2.5rem;
+  }
 
   &__units {
     display: flex;
@@ -17,24 +23,32 @@
       font-size: 1.8rem;
       font-weight: 700;
     }
+
+    @include respond(smallPhone) {
+      justify-content: space-around;
+    }
   }
 
   &__days {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
     margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+    grid-gap: 1.5rem;
   }
 
   &__hightlights {
     flex: 1;
     display: flex;
     flex-direction: column;
+    margin-bottom: 5rem;
 
     &--grid {
       flex: 0.8;
       display: grid;
       grid-gap: 2rem;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(32em, 1fr));
       margin-top: 2rem;
     }
 
@@ -47,7 +61,7 @@
   &__createBy {
     font-family: "Raleway";
     font-weight: 500;
-    font-size: 14px;
+    font-size: 1.4rem;
     margin-top: auto;
   }
 

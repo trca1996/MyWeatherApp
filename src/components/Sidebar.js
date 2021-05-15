@@ -16,7 +16,6 @@ function Sidebar() {
   const onSubmit = ({ location }, e) => {
     console.log(location);
     e.target.reset();
-    dispatch(closeSidebar());
   };
 
   return (

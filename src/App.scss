@@ -1,6 +1,12 @@
+@import "./design-tokens/scss-variables";
+
 .app {
   position: relative;
   display: flex;
   min-height: 100vh;
   height: 100%;
+
+  @include respond(smallDesktop) {
+    display: block;
+  }
 }
