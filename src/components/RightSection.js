@@ -5,24 +5,25 @@ import Hightlight from "./Hightlight";
 import "./RightSection.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { ChangeToCelsius, changeToFahrenheit } from "../features/TempUnitSlice";
+import { closeSidebar } from "../features/SidebarToggleSlice";
 
 function RightSection() {
   const tempUnit = useSelector((state) => state.tempUnit.tempUnit);
   const dispatch = useDispatch();
 
   return (
-    <div className="rightSection">
+    <div onClick={() => dispatch(closeSidebar())} className="rightSection">
       <div className="rightSection__units">
         <Fab
           onClick={() => dispatch(changeToFahrenheit())}
-          color={tempUnit === "fahrenheit" ? "secondary" : "default"}
+          color={tempUnit === "fahrenheit" ? "primary" : "default"}
           size="small"
         >
           ℉
         </Fab>
         <Fab
           onClick={() => dispatch(ChangeToCelsius())}
-          color={tempUnit === "celsius" ? "secondary" : "default"}
+          color={tempUnit === "celsius" ? "primary" : "default"}
           size="small"
         >
           ℃

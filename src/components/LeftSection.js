@@ -2,10 +2,13 @@ import React from "react";
 import "./LeftSection.scss";
 import { FiberManualRecord, LocationOn, MyLocation } from "@material-ui/icons";
 import { Button, Fab } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { openSidebar } from "../features/SidebarToggleSlice";
 
 function LeftSection() {
   const tempUnit = useSelector((state) => state.tempUnit.tempUnit);
+
+  const dispatch = useDispatch();
 
   const celToFahr = (celsius) => {
     const fahrenheit = Math.round((celsius * 9) / 5 + 32);
@@ -20,7 +23,9 @@ function LeftSection() {
       <img className="cloud cloud--four" src="cloud.svg" alt="cloud" />
 
       <div className="leftSection__header">
-        <Button variant="contained">Search for places</Button>
+        <Button onClick={() => dispatch(openSidebar())} variant="contained">
+          Search for places
+        </Button>
         <Fab size="small">
           {/* iconButton change color (secondary) based on current location is true or false */}
           <MyLocation fontSize="large" />

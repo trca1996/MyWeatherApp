@@ -1,0 +1,25 @@
+.locationSelect {
+  display: flex;
+  align-items: center;
+  transition: all 1s ease;
+  width: 79%;
+  height: 5rem;
+
+  p {
+    margin-right: auto;
+    margin-left: 2rem;
+    color: var(--color-text);
+  }
+
+  .MuiSvgIcon-root {
+    display: none !important;
+  }
+
+  &:hover {
+    border: 1px solid var(--color-text-darker);
+
+    .MuiSvgIcon-root {
+      display: block !important;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 30%;
+  height: 100%;
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-100%);
+
+  &__open {
+    transform: translateX(0);
+  }
+
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    margin-top: 10vw;
+
+    button {
+      padding: 1rem;
+      color: var(--color-text);
+      background-color: #3f51b5;
+      border: none;
+      outline: none;
+      margin-left: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: "Raleway";
+      font-weight: 600;
+
+      &:active {
+        background-color: rgba(224, 224, 224, 0.4);
+      }
+    }
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-text-darker);
+    padding-left: 1rem;
+
+    input {
+      background-color: transparent;
+      outline: none;
+      border: none;
+      padding: 1rem;
+      color: var(--color-text);
+    }
+  }
+}
