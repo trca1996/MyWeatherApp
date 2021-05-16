@@ -18,7 +18,7 @@ function Hightlight({
 
       {wind ? (
         <p>
-          <span>{wind}</span>mph
+          <span>{Math.round(wind)}</span>mph
         </p>
       ) : null}
 

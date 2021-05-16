@@ -1,4 +1,4 @@
-import { Fab } from "@material-ui/core";
+import { CircularProgress, Fab } from "@material-ui/core";
 import React from "react";
 import DayCard from "./DayCard";
 import Hightlight from "./Hightlight";
@@ -6,10 +6,31 @@ import "./RightSection.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { ChangeToCelsius, changeToFahrenheit } from "../features/TempUnitSlice";
 import { closeSidebar } from "../features/SidebarToggleSlice";
+var dateFormat = require("dateformat");
 
 function RightSection() {
   const tempUnit = useSelector((state) => state.tempUnit.tempUnit);
   const dispatch = useDispatch();
+
+  const { todayWeather, nextFiveDaysWeather } = useSelector(
+    (state) => state.currentLocation
+  );
+
+  const renderFiveDaysWeather = (data) => {
+    return data.map(
+      ({ applicable_date, max_temp, min_temp, weather_state_abbr, id }) => {
+        return (
+          <DayCard
+            key={id}
+            day={dateFormat(applicable_date, "ddd, mmmm dS")}
+            icon={`https://www.metaweather.com/static/img/weather/${weather_state_abbr}.svg`}
+            maxTemp={max_temp}
+            minTemp={min_temp}
+          />
+        );
+      }
+    );
+  };
 
   return (
     <div onClick={() => dispatch(closeSidebar())} className="rightSection">
@@ -31,36 +52,11 @@ function RightSection() {
       </div>
 
       <div className="rightSection__days">
-        <DayCard
-          day="Tomorrow"
-          icon="https://downloadfreesvgicons.com/icons/cloud-icons/svg-cloud-and-sun-icon-1/svg-cloud-and-sun-icon-1.svg"
-          maxTemp="16"
-          minTemp="11"
-        />
-        <DayCard
-          day="Sun. 7 Jun"
-          icon="https://downloadfreesvgicons.com/icons/cloud-icons/svg-cloud-and-sun-icon-1/svg-cloud-and-sun-icon-1.svg"
-          maxTemp="16"
-          minTemp="11"
-        />
-        <DayCard
-          day="Mon. 8 Jun"
-          icon="https://downloadfreesvgicons.com/icons/cloud-icons/svg-cloud-and-sun-icon-1/svg-cloud-and-sun-icon-1.svg"
-          maxTemp="16"
-          minTemp="11"
-        />
-        <DayCard
-          day="Tue. 9 Jun"
-          icon="https://downloadfreesvgicons.com/icons/cloud-icons/svg-cloud-and-sun-icon-1/svg-cloud-and-sun-icon-1.svg"
-          maxTemp="16"
-          minTemp="11"
-        />
-        <DayCard
-          day="Wed. 10 Jun"
-          icon="https://downloadfreesvgicons.com/icons/cloud-icons/svg-cloud-and-sun-icon-1/svg-cloud-and-sun-icon-1.svg"
-          maxTemp="16"
-          minTemp="11"
-        />
+        {nextFiveDaysWeather ? (
+          renderFiveDaysWeather(nextFiveDaysWeather)
+        ) : (
+          <CircularProgress />
+        )}
       </div>
 
       <div className="rightSection__hightlights">
@@ -69,12 +65,18 @@ function RightSection() {
         <div className="rightSection__hightlights--grid">
           <Hightlight
             title="Wind Status"
-            wind="7"
-            windDirection="261.36100044750697"
+            wind={todayWeather?.wind_speed}
+            windDirection={todayWeather?.wind_direction}
           />
-          <Hightlight title="Humidity" humidity="85.9" />
-          <Hightlight title="Visibility" visibility="6.4" />
-          <Hightlight title="Air Pressure" airPressure="1010.0" />
+          <Hightlight title="Humidity" humidity={todayWeather?.humidity} />
+          <Hightlight
+            title="Visibility"
+            visibility={todayWeather?.visibility}
+          />
+          <Hightlight
+            title="Air Pressure"
+            airPressure={todayWeather?.air_pressure}
+          />
         </div>
       </div>
 

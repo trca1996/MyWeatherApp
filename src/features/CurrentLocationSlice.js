@@ -9,25 +9,23 @@ export const getCurrentLocation = createAsyncThunk(
         lattlong: `${payload.lat},${payload.lng}`,
       },
     });
-    const data = response.data[0];
-    return data;
-  }
-);
+    const data = response.data[0].woeid;
 
-export const getLocationWeather = createAsyncThunk(
-  "locationWeather/getLocationWeather",
-  async (woeid) => {
-    const response = await api.get(`/api/location/${woeid}`);
+    const getWeather = await api.get(`/api/location/${data}`);
 
-    const data = response.data;
+    const finalData = {
+      location: getWeather.data.title,
+      weather: getWeather.data.consolidated_weather,
+    };
 
-    return data;
+    return finalData;
   }
 );
 
 const initialState = {
   currentLocation: null,
-  locationWeather: null,
+  todayWeather: null,
+  nextFiveDaysWeather: null,
 };
 
 const CurrentLocationSlice = createSlice({
@@ -36,11 +34,9 @@ const CurrentLocationSlice = createSlice({
   reducers: {},
   extraReducers: {
     [getCurrentLocation.fulfilled]: (state, action) => {
-      state.currentLocation = action.payload;
-    },
-    [getLocationWeather.fulfilled]: (state, action) => {
-      console.log(action.payload);
-      state.locationWeather = action.payload;
+      state.currentLocation = action.payload.location;
+      state.todayWeather = action.payload.weather[0];
+      state.nextFiveDaysWeather = action.payload.weather.slice(1);
     },
   },
 });

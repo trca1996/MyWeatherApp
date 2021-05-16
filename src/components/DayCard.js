@@ -18,11 +18,15 @@ function DayCard({ day, icon, maxTemp, minTemp }) {
 
       <div className="dayCard__temp">
         <p>
-          {tempUnit === "fahrenheit" ? `${celToFahr(maxTemp)}℉` : `${maxTemp}℃`}
+          {tempUnit === "fahrenheit"
+            ? `${celToFahr(maxTemp)}℉`
+            : `${Math.round(maxTemp)}℃`}
         </p>
 
         <p className="dayCard__temp--min">
-          {tempUnit === "fahrenheit" ? `${celToFahr(minTemp)}℉` : `${minTemp}℃`}
+          {tempUnit === "fahrenheit"
+            ? `${celToFahr(minTemp)}℉`
+            : `${Math.round(minTemp)}℃`}
         </p>
       </div>
     </div>

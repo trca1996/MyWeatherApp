@@ -1,18 +1,48 @@
 import React from "react";
 import "./LeftSection.scss";
 import { FiberManualRecord, LocationOn, MyLocation } from "@material-ui/icons";
-import { Button, Fab } from "@material-ui/core";
+import { Button, CircularProgress, Fab } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { openSidebar } from "../features/SidebarToggleSlice";
+var dateFormat = require("dateformat");
 
 function LeftSection() {
   const tempUnit = useSelector((state) => state.tempUnit.tempUnit);
+  const { currentLocation, todayWeather } = useSelector(
+    (state) => state.currentLocation
+  );
 
   const dispatch = useDispatch();
 
   const celToFahr = (celsius) => {
     const fahrenheit = Math.round((celsius * 9) / 5 + 32);
     return fahrenheit;
+  };
+
+  const tempDisplay = () => {
+    if (tempUnit === "fahrenheit") {
+      if (todayWeather) {
+        return (
+          <h4>
+            <span>{celToFahr(todayWeather?.the_temp)}</span>℉
+          </h4>
+        );
+      } else {
+        <CircularProgress />;
+      }
+    }
+
+    if (tempUnit === "celsius") {
+      if (todayWeather) {
+        return (
+          <h4>
+            <span>{Math.round(todayWeather?.the_temp)}</span>℃
+          </h4>
+        );
+      } else {
+        <CircularProgress />;
+      }
+    }
   };
 
   return (
@@ -33,33 +63,29 @@ function LeftSection() {
       </div>
 
       <div className="leftSection__main">
-        <img
-          src="https://downloadfreesvgicons.com/icons/cloud-icons/svg-cloud-and-sun-icon-1/svg-cloud-and-sun-icon-1.svg"
-          alt=""
-        />
-
-        {tempUnit === "fahrenheit" ? (
-          <h4>
-            <span>{celToFahr(15)}</span>℉
-          </h4>
+        {todayWeather ? (
+          <img
+            src={`https://www.metaweather.com/static/img/weather/${todayWeather?.weather_state_abbr}.svg`}
+            alt=""
+          />
         ) : (
-          <h4>
-            <span>15</span>℃
-          </h4>
+          <CircularProgress />
         )}
 
-        <h5>Shower</h5>
+        {tempDisplay()}
+
+        <h5>{todayWeather?.weather_state_name}</h5>
       </div>
 
       <div className="leftSection__date">
-        <p>Today</p>
+        <p>{dateFormat(todayWeather?.applicable_date, "DDDD")}</p>
         <FiberManualRecord />
-        <p>Fri, 5 Jun</p>
+        <p>{dateFormat(todayWeather?.applicable_date, " mmmm dS")}</p>
       </div>
 
       <div className="leftSection__location">
         <LocationOn />
-        <p>Helsinki</p>
+        <p>{currentLocation}</p>
       </div>
     </div>
   );
