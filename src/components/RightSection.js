@@ -22,7 +22,7 @@ function RightSection() {
         return (
           <DayCard
             key={id}
-            day={dateFormat(applicable_date, "ddd, mmmm dS")}
+            day={dateFormat(applicable_date, "DDDD, mmmm d")}
             icon={`https://www.metaweather.com/static/img/weather/${weather_state_abbr}.svg`}
             maxTemp={max_temp}
             minTemp={min_temp}

@@ -6,16 +6,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeSidebar } from "../features/SidebarToggleSlice";
 import LocationSelect from "./LocationSelect";
 import { useForm } from "react-hook-form";
+import { getSearchWoeid } from "../features/CurrentLocationSlice";
 
 function Sidebar() {
   const sidebarToggle = useSelector((state) => state.sidebarToggle.sidebar);
+  const { searchLocation } = useSelector((state) => state.currentLocation);
   const dispatch = useDispatch();
 
   const { register, handleSubmit } = useForm();
 
   const onSubmit = ({ location }, e) => {
-    console.log(location);
+    dispatch(getSearchWoeid(location));
     e.target.reset();
+  };
+
+  const renderLocationSelect = (data) => {
+    return data.map(({ title, woeid }) => {
+      return <LocationSelect location={title} key={woeid} woeid={woeid} />;
+    });
   };
 
   return (
@@ -39,9 +47,7 @@ function Sidebar() {
         <button type="submit">Search</button>
       </form>
 
-      <LocationSelect location="London" />
-      <LocationSelect location="Barcelona" />
-      <LocationSelect location="Long Beach" />
+      {searchLocation ? renderLocationSelect(searchLocation) : null}
     </div>
   );
 }
