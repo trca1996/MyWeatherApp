@@ -48,6 +48,12 @@ function Sidebar() {
       </form>
 
       {searchLocation ? renderLocationSelect(searchLocation) : null}
+      {searchLocation?.length === 0 ? (
+        <div className="sidebar__message">
+          <p>We don't have info about that location 😥</p>
+          <p>Try another one 😁</p>
+        </div>
+      ) : null}
     </div>
   );
 }

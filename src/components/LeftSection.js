@@ -4,11 +4,12 @@ import { FiberManualRecord, LocationOn, MyLocation } from "@material-ui/icons";
 import { Button, CircularProgress, Fab } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { openSidebar } from "../features/SidebarToggleSlice";
+import { getCurrentLocation } from "../features/CurrentLocationSlice";
 var dateFormat = require("dateformat");
 
 function LeftSection() {
   const tempUnit = useSelector((state) => state.tempUnit.tempUnit);
-  const { currentLocation, todayWeather } = useSelector(
+  const { currentLocation, todayWeather, isCurrentLocation } = useSelector(
     (state) => state.currentLocation
   );
 
@@ -45,6 +46,16 @@ function LeftSection() {
     }
   };
 
+  const getLocalWeather = () => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const latlng = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+      dispatch(getCurrentLocation(latlng));
+    });
+  };
+
   return (
     <div className="leftSection">
       <img className="cloud cloud--one" src="cloud.svg" alt="cloud" />
@@ -56,8 +67,11 @@ function LeftSection() {
         <Button onClick={() => dispatch(openSidebar())} variant="contained">
           Search for places
         </Button>
-        <Fab size="small">
-          {/* iconButton change color (secondary) based on current location is true or false */}
+        <Fab
+          onClick={getLocalWeather}
+          color={isCurrentLocation ? "primary" : "default"}
+          size="small"
+        >
           <MyLocation fontSize="large" />
         </Fab>
       </div>
@@ -66,7 +80,7 @@ function LeftSection() {
         {todayWeather ? (
           <img
             src={`https://www.metaweather.com/static/img/weather/${todayWeather?.weather_state_abbr}.svg`}
-            alt=""
+            alt={`${todayWeather?.weather_state_name}`}
           />
         ) : (
           <CircularProgress />

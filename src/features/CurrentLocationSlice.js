@@ -56,6 +56,7 @@ const initialState = {
   todayWeather: null,
   nextFiveDaysWeather: null,
   searchLocation: null,
+  isCurrentLocation: true,
 };
 
 const CurrentLocationSlice = createSlice({
@@ -67,6 +68,7 @@ const CurrentLocationSlice = createSlice({
       state.currentLocation = action.payload.location;
       state.todayWeather = action.payload.weather[0];
       state.nextFiveDaysWeather = action.payload.weather.slice(1);
+      state.isCurrentLocation = true;
     },
     [getSearchWoeid.fulfilled]: (state, action) => {
       state.searchLocation = action.payload.map(({ title, woeid }) => {
@@ -77,6 +79,7 @@ const CurrentLocationSlice = createSlice({
       state.currentLocation = action.payload.location;
       state.todayWeather = action.payload.weather[0];
       state.nextFiveDaysWeather = action.payload.weather.slice(1);
+      state.isCurrentLocation = false;
     },
   },
 });
