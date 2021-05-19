@@ -58,10 +58,10 @@ function LeftSection() {
 
   return (
     <div className="leftSection">
-      <img className="cloud cloud--one" src="cloud.svg" alt="cloud" />
-      <img className="cloud cloud--two" src="cloud.svg" alt="cloud" />
-      <img className="cloud cloud--three" src="cloud.svg" alt="cloud" />
-      <img className="cloud cloud--four" src="cloud.svg" alt="cloud" />
+      <img className="cloud cloud--one" src="/images/cloud.svg" alt="cloud" />
+      <img className="cloud cloud--two" src="/images/cloud.svg" alt="cloud" />
+      <img className="cloud cloud--three" src="/images/cloud.svg" alt="cloud" />
+      <img className="cloud cloud--four" src="/images/cloud.svg" alt="cloud" />
 
       <div className="leftSection__header">
         <Button onClick={() => dispatch(openSidebar())} variant="contained">
