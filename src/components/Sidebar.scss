@@ -15,7 +15,8 @@
   transition: all 0.3s ease-in-out;
   transform: translateX(-100%);
   overflow-y: scroll;
-  padding-bottom: 5rem;
+  padding: 0 2rem 5rem 2rem;
+
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -49,29 +50,26 @@
   }
 
   &__close {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
+    position: sticky;
+    top: 1.5rem;
+    align-self: flex-end;
+
+    z-index: 100;
   }
 
   &__search {
     display: flex;
     align-items: center;
-    margin-top: 10vw;
+    // margin-top: 8vw;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     position: sticky;
-    top: 15px;
+    top: 0px;
     background-color: var(--color-primary);
-
-    @include respond(tab-port) {
-      margin-top: 20vw;
-      top: 12px;
-    }
-
-    @include respond(smallPhone) {
-      margin-top: 25vw;
-      top: 8px;
-    }
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+    width: 100%;
 
     button {
       padding: 1rem;
@@ -96,6 +94,7 @@
     align-items: center;
     border: 1px solid var(--color-text-darker);
     padding-left: 1rem;
+    width: 65%;
 
     @include respond(smallPhone) {
       width: 65%;

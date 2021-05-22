@@ -1,10 +1,11 @@
 .locationSelect {
   display: flex;
   align-items: center;
-  transition: all 1s ease;
+  transition: all 0.2s ease;
   width: 79%;
   height: 5rem;
   cursor: pointer;
+  border: 1px solid transparent;
 
   p {
     margin-right: auto;
