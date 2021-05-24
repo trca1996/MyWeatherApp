@@ -6,11 +6,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://romantic-blackwell-baeae3.netlify.app/">
+    <a href="https://naughty-ride-dbbd7d.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://romantic-blackwell-baeae3.netlify.app/">
+    <a href="https://naughty-ride-dbbd7d.netlify.app/">
       Solution
     </a>
     <span> | </span>
@@ -34,7 +34,7 @@
 
 ## Overview
 
-![screenshot](https://github.com/trca1996/react-redux-todo-app/blob/master/snapshot.png?raw=true)
+![screenshot](https://raw.githubusercontent.com/trca1996/MyWeatherApp/master/MyWeatherApp-screenshot.png)
 
 ### Built With
 

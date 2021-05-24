@@ -47,13 +47,19 @@ function LeftSection() {
   };
 
   const getLocalWeather = () => {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      const latlng = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-      dispatch(getCurrentLocation(latlng));
-    });
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const latlng = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        dispatch(getCurrentLocation(latlng));
+      },
+      (err) => {
+        console.log(err.message);
+        return;
+      }
+    );
   };
 
   return (

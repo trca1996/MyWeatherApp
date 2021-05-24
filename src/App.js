@@ -10,13 +10,23 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      const latlng = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-      dispatch(getCurrentLocation(latlng));
-    });
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const latlng = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        dispatch(getCurrentLocation(latlng));
+      },
+      (err) => {
+        console.log(err.message);
+        const latlng = {
+          lat: 36.96,
+          lng: -122.02,
+        };
+        dispatch(getCurrentLocation(latlng));
+      }
+    );
   }, [dispatch]);
 
   return (
