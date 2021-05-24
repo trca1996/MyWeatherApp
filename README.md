@@ -1,44 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+<h1 align="center">MyWeather App</h1>
 
-## Available Scripts
+<div align="center">
+   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
+</div>
 
-In the project directory, you can run:
+<div align="center">
+  <h3>
+    <a href="https://romantic-blackwell-baeae3.netlify.app/">
+      Demo
+    </a>
+    <span> | </span>
+    <a href="https://romantic-blackwell-baeae3.netlify.app/">
+      Solution
+    </a>
+    <span> | </span>
+    <a href="https://devchallenges.io/challenges/hH6PbOHBdPm6otzw2De5">
+      Challenge
+    </a>
+  </h3>
+</div>
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [Overview](#overview)
+- [Built With](#built-with)
+- [Features](#features)
+- [How to use](#how-to-use)
+- [Contact](#contact)
 
-### `npm test`
+<!-- OVERVIEW -->
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Overview
 
-### `npm run build`
+![screenshot](https://github.com/trca1996/react-redux-todo-app/blob/master/snapshot.png?raw=true)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built With
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [React](https://reactjs.org/)
+- [React Hook Form](https://react-hook-form.com/get-started/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Node Sass](https://www.npmjs.com/package/node-sass)
+- [Material-UI](https://material-ui.com/)
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/hH6PbOHBdPm6otzw2De5) was to build an application to complete the given user stories.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How To Use
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- Example: -->
 
-## Learn More
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Clone this repository
+$ git clone https://github.com/trca1996/react-redux-todo-app.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start
+```
+
+## Contact
+
+- GitHub [@trca1996](https://github.com/trca1996)
