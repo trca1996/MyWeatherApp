@@ -1,10 +1,10 @@
 import { Navigation } from "@material-ui/icons";
 import React from "react";
-import "./Hightlight.scss";
+import "./Highlight.scss";
 import d2d from "degrees-to-direction";
 import { Fab } from "@material-ui/core";
 
-function Hightlight({
+function Highlight({
   title,
   wind,
   windDirection,
@@ -13,7 +13,7 @@ function Hightlight({
   airPressure,
 }) {
   return (
-    <div className="hightlight">
+    <div className="highlight">
       <h4>{title}</h4>
 
       {wind ? (
@@ -41,7 +41,7 @@ function Hightlight({
       ) : null}
 
       {windDirection ? (
-        <div className="hightlight__windDirection">
+        <div className="highlight__windDirection">
           <Fab disableRipple size="small">
             <Navigation
               fontSize="large"
@@ -53,23 +53,23 @@ function Hightlight({
       ) : null}
 
       {humidity ? (
-        <div className="hightlight__humidity">
-          <div className="hightlight__percent">
-            <p className="hightlight__percent--zero">0</p>
+        <div className="highlight__humidity">
+          <div className="highlight__percent">
+            <p className="highlight__percent--zero">0</p>
             <p>50</p>
-            <p className="hightlight__percent--hundred">100</p>
+            <p className="highlight__percent--hundred">100</p>
           </div>
-          <div className="hightlight__proggresLabel">
+          <div className="highlight__progressLabel">
             <div
               style={{ width: `${humidity}%` }}
-              className="hightlight__proggres"
+              className="highlight__progress"
             ></div>
           </div>
-          <p className="hightlight__humidity--p">%</p>
+          <p className="highlight__humidity--p">%</p>
         </div>
       ) : null}
     </div>
   );
 }
 
-export default Hightlight;
+export default Highlight;

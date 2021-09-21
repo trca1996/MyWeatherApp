@@ -1,6 +1,6 @@
 @import "../design-tokens/scss-variables";
 
-.hightlight {
+.highlight {
   background-color: var(--color-primary);
   padding: 1.5rem 5rem;
   display: flex;
@@ -63,14 +63,14 @@
     }
   }
 
-  &__proggresLabel {
+  &__progressLabel {
     width: 100%;
     height: 1rem;
     background-color: var(--color-box);
     border-radius: 50px;
   }
 
-  &__proggres {
+  &__progress {
     background-color: var(--color-secondary);
     height: 100%;
     border-radius: 50px;
