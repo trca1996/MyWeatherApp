@@ -1,7 +1,7 @@
 import { CircularProgress, Fab } from "@material-ui/core";
 import React from "react";
 import DayCard from "./DayCard";
-import Hightlight from "./Hightlight";
+import Highlight from "./Highlight";
 import "./RightSection.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { ChangeToCelsius, changeToFahrenheit } from "../features/TempUnitSlice";
@@ -59,21 +59,18 @@ function RightSection() {
         )}
       </div>
 
-      <div className="rightSection__hightlights">
-        <h3>Today's Hightlights</h3>
+      <div className="rightSection__highlights">
+        <h3>Today's Highlights</h3>
 
-        <div className="rightSection__hightlights--grid">
-          <Hightlight
+        <div className="rightSection__highlights--grid">
+          <Highlight
             title="Wind Status"
             wind={todayWeather?.wind_speed}
             windDirection={todayWeather?.wind_direction}
           />
-          <Hightlight title="Humidity" humidity={todayWeather?.humidity} />
-          <Hightlight
-            title="Visibility"
-            visibility={todayWeather?.visibility}
-          />
-          <Hightlight
+          <Highlight title="Humidity" humidity={todayWeather?.humidity} />
+          <Highlight title="Visibility" visibility={todayWeather?.visibility} />
+          <Highlight
             title="Air Pressure"
             airPressure={todayWeather?.air_pressure}
           />
