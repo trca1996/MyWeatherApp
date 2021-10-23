@@ -6,11 +6,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://naughty-ride-dbbd7d.netlify.app/">
+    <a href="https://weather-app-dbbd7d.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://naughty-ride-dbbd7d.netlify.app/">
+    <a href="https://weather-app-dbbd7d.netlify.app/">
       Solution
     </a>
     <span> | </span>
